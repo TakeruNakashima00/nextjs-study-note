@@ -17,3 +17,9 @@ pnpm dev
 
 ## reference
 https://nextjs.org/learn/dashboard-app
+
+
+
+```
+openssl rand -base64 32
+```
