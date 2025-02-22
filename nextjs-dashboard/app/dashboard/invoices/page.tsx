@@ -7,12 +7,17 @@ import { InvoicesTableSkeleton } from '@/app/ui/skeletons';
 import { Suspense } from 'react';
 import { fetchInvoicesPages } from '@/app/lib/data';
 
+// このpropsはNext.jsのページルーティングシステムから自動的に渡されます。
+// searchParamsはURLのクエリパラメータを含むオブジェクトです。
+// 例: /dashboard/invoices?query=test&page=2 の場合
+// searchParams = { query: 'test', page: '2' }
 export default async function Page(props: {
   searchParams?: Promise<{
     query?: string;
     page?: string;
   }>
 }) {
+
   const searchParams = await props.searchParams;
   const query = searchParams?.query || '';
   const currentPage = Number(searchParams?.page) || 1;
